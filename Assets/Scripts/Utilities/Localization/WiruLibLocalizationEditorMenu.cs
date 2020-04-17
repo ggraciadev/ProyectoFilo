@@ -22,7 +22,7 @@ namespace WiruLib
         public static void LoadTranslateSheet(string _path)
         {
             Debug.Log("Opening " + _path);
-            WiruLocalization.LoadLocalization(_path);
+            WiruLocalization.GenerateJSON(_path);
         }
 
         void OnGUI()

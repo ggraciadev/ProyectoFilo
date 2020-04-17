@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 namespace WiruLib {
     public class WiruLocalization : Singleton<WiruLocalization>
@@ -16,58 +17,12 @@ namespace WiruLib {
                 ChangeLanguage();
             }
         }
-        public static List<List<string>> gameLocalization;
-        public static Dictionary<string, int> keyPosition;
+        public Dictionary<string, List<string>> map;
 
         public void Init_WiruLocalization()
         {
-            ParseLanguageCSVToJSON(LoadCSV("Localization"));
+            //ParseLanguageCSVToJSON(LoadCSV("Localization"));
             CurrentLanguage = Language.Spa;
-        }
-
-        public static void ParseLanguageCSVToJSON(string csv)
-        {
-            if (gameLocalization != null)
-            {
-                gameLocalization.Clear();
-                keyPosition.Clear();
-            }
-            else
-            {
-                gameLocalization = new List<List<string>>();
-                keyPosition = new Dictionary<string, int>();
-            }
-
-            int currentIteratorX = 0;
-            int currentIteratorY = 0;
-            string temp = "";
-
-            gameLocalization.Add(new List<string>());
-
-            for (int i = 0; i < csv.Length; i++)
-            {
-                if (csv[i] == '\n')
-                {
-                    currentIteratorY++;
-                    currentIteratorX = 0;
-                    temp = "";
-                    gameLocalization.Add(new List<string>());
-                }
-                else if (csv[i] == ',')
-                {
-                    gameLocalization[currentIteratorY].Add(temp);
-                    
-                    if(currentIteratorX++ == 0 && !keyPosition.ContainsKey(temp))
-                    {
-                        keyPosition.Add(temp, currentIteratorY);
-                    }
-                    temp = "";
-                }
-                else if (csv[i] != '\r')
-                {
-                    temp += csv[i];
-                }
-            }
         }
 
         public static string LoadCSV(string path)
@@ -84,15 +39,27 @@ namespace WiruLib {
             }
         }
 
-        public static void LoadLocalization(string path)
+        public static void SaveJSON(string path)
         {
-            ParseLanguageCSVToJSON(LoadCSV(path));
+            System.IO.StreamWriter file = new StreamWriter("Assets/Resources/" + path + ".json", false);
+            file.Write(CSVToJSON.CSVToJson(LoadCSV(path)));
+            file.Close();
+        }
+
+        public static void LoadLocalization()
+        {
+
+        }
+
+        public static void GenerateJSON(string path)
+        {
+            SaveJSON(path);
         }
 
         public string[] GetTermData(string key)
         {
             string[] ret = new string[0];
-            ret = gameLocalization[keyPosition[key]].ToArray();
+            ret = map[key].ToArray();
             return ret;
         }
 
@@ -104,5 +71,12 @@ namespace WiruLib {
                 word.ChangeLanguage(currentLanguage);
             }
         }
+
+        
     }
+}
+
+class Map
+{
+    public Dictionary<string, List<string>> map;
 }

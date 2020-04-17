@@ -1,0 +1,50 @@
+[
+{
+"Key": "MainMenu","Eng": "Main Menu","Spa": "Menú Principal","Cat": ""
+},
+{
+"Key": "DataMenu","Eng": "Data Menu","Spa": "Menú de datos","Cat": ""
+},
+{
+"Key": "Preguntas","Eng": "Questions","Spa": "Preguntas","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01","Eng": "","Spa": "La teoría de las [01] es una teoría [02] (nos habla de la realidad) pero también es [03] (nos explica como conocemos) [04] (como es el hombre) [05] (y su alma). También constituye el fundamento de su [06] y su [07]","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_01","Eng": "","Spa": "ideas","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_02","Eng": "","Spa": "metafísica","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_03","Eng": "","Spa": "gnoseológica","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_04","Eng": "","Spa": "antropológica","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_05","Eng": "","Spa": "psicológica","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_06","Eng": "","Spa": "ética","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_07","Eng": "","Spa": "política","Cat": ""
+},
+{
+"Key": "Prueba_01","Eng": "","Spa": "¿Cual es la verdadera?","Cat": ""
+},
+{
+"Key": "Prueba_01_01","Eng": "","Spa": "Esta no","Cat": ""
+},
+{
+"Key": "Prueba_01_02","Eng": "","Spa": "Correcta","Cat": ""
+},
+{
+"Key": "Prueba_01_03","Eng": "","Spa": "Incorrecta","Cat": ""
+},
+{
+"Key": "Prueba_01_04","Eng": "","Spa": "Esta tampoco","Cat": ""
+}
+]

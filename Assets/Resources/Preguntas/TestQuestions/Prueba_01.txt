@@ -1,0 +1,13 @@
+-- Key de la pregunta --
+Prueba_01
+
+-- Tipo de Pregunta -- 
+Test
+
+--Respuestas Correctas en orden --
+02
+
+-- Respuestas Incorrectas --
+01
+03
+04
