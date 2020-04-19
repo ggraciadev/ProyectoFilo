@@ -6,7 +6,7 @@ using WiruLib;
 
 public class Question
 {
-    public enum QuestionTypes { Test, MultipleChoice, Order, FillGaps};
+    public enum QuestionTypes { Test, MultipleChoice, Order, FillGaps, End};
 
     QuestionTypes questionType;
     WiruLocalizeText title;
