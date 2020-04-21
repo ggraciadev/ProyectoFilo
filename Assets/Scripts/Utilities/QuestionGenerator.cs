@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class QuestionGenerator : UnityEditor.EditorWindow
 {
     string[] ALL_TYPES = { "Test", "MultipleChoice", "Order", "FillGaps" };
     int selected;
     string questionKey = "Key de la Pregunta";
+    string tema = "Tema";
+    string asignatura = "Asignatura";
     string questionTitleSpa = "Texto de la pregunta (SPA)";
     Question.QuestionTypes questionType;
 
@@ -24,6 +27,8 @@ public class QuestionGenerator : UnityEditor.EditorWindow
         window.correctAnswers = new string[10];
         window.incorrectAnswers = new string[10];
 
+        window.asignatura = "Asignatura";
+        window.tema = "Tema";
         window.questionKey = "Key de la Pregunta";
         window.questionTitleSpa = "Texto de la pregunta (SPA)";
 
@@ -42,7 +47,10 @@ public class QuestionGenerator : UnityEditor.EditorWindow
     void OnGUI()
     {
         UnityEditor.EditorStyles.textArea.wordWrap = true;
-        
+
+        asignatura = UnityEditor.EditorGUILayout.TextArea(asignatura);
+        tema = UnityEditor.EditorGUILayout.TextArea(tema);
+
         questionKey = UnityEditor.EditorGUILayout.TextArea(questionKey);
         
         questionTitleSpa = UnityEditor.EditorGUILayout.TextArea(questionTitleSpa);
@@ -57,6 +65,7 @@ public class QuestionGenerator : UnityEditor.EditorWindow
                 OnGUI_MultiChoice();
                 break;
             case (int)Question.QuestionTypes.Order:
+                OnGUI_Order();
                 break;
             case (int)Question.QuestionTypes.FillGaps:
                 break;
@@ -64,7 +73,19 @@ public class QuestionGenerator : UnityEditor.EditorWindow
 
         if (GUILayout.Button("Añadir Pregunta!"))
         {
-            Debug.Log(questionKey + " | " + questionTitleSpa + " | " + correctAnswers[0]);
+            AddToQuestionList();
+            AddEntryToCSV();
+            CreateQuestionFile();
+            Debug.Log(questionKey + " | " + questionTitleSpa + " | " + correctAnswers[0] + " Creada correctamente!");
+        }
+    }
+
+    void OnGUI_Order()
+    {
+        correctAnswersCount = UnityEditor.EditorGUILayout.IntField("Respuestas en orden correcto", correctAnswersCount);
+        for (int i = 0; i < correctAnswersCount; ++i)
+        {
+            correctAnswers[i] = UnityEditor.EditorGUILayout.TextArea(correctAnswers[i]);
         }
     }
 
@@ -95,5 +116,50 @@ public class QuestionGenerator : UnityEditor.EditorWindow
         }
     }
 
-    
+    void AddToQuestionList()
+    {
+        System.IO.StreamWriter file = new StreamWriter("Assets/Resources/Questions/List.txt", true);
+        file.Write(asignatura + "/" + tema + "/" + questionKey + "\n");
+        file.Close();
+    }
+
+    void CreateQuestionFile()
+    {
+        if(!Directory.Exists("Assets/Resources/Questions/" + asignatura + "/" + tema))
+            System.IO.Directory.CreateDirectory("Assets/Resources/Questions/" + asignatura + "/" + tema);
+
+        StreamWriter file = File.CreateText("Assets/Resources/Questions/" + asignatura + "/" + tema + "/" + questionKey + ".txt");
+        file.Write("-- Key de la pregunta --\n");
+        file.Write(asignatura + "_" + tema + "_" + questionKey + "\n");
+        file.Write("\n-- Tipo de pregunta --\n");
+        file.Write(ALL_TYPES[selected] + "\n");
+        file.Write("\n-- Respuestas Correctas en orden --\n");
+        for (int i = 0; i < correctAnswersCount; ++i)
+        {
+            file.Write(asignatura + "_" + tema + "_" + questionKey + "_Correct" + i + "\n");
+        }
+        file.Write("\n-- Respuestas Incorrectas en orden --\n");
+        for (int i = 0; i < incorrectAnswersCount; ++i)
+        {
+            file.Write(asignatura + "_" + tema + "_" + questionKey + "_Incorrect" + i + "\n");
+        }
+
+        file.Close();
+    }
+
+    void AddEntryToCSV()
+    {
+        System.IO.StreamWriter file = new StreamWriter("Assets/Resources/Localization/Localization.csv", true);
+        file.Write("\n,,,");
+        file.Write("\n" + asignatura + "_" + tema + "_" + questionKey + ",," + questionTitleSpa + ",");
+        for(int i = 0; i < correctAnswersCount; ++i)
+        {
+            file.Write("\n" + asignatura + "_" + tema + "_" + questionKey + "Correct" + i  + ",," + correctAnswers[i] + ",");
+        }
+        for (int i = 0; i < incorrectAnswersCount; ++i)
+        {
+            file.Write("\n" + asignatura + "_" + tema + "_" + questionKey + "Incorrect" + i + ",," + incorrectAnswers[i] + ",");
+        }
+        file.Close();
+    }
 }

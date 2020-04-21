@@ -1,0 +1,12 @@
+-- Key de la pregunta --
+Filo_Platon_Test
+-- Tipo de pregunta --
+Test
+
+-- Respuestas Correctas en orden --
+Filo_Platon_Test_Correct0
+
+-- Respuestas Incorrectas en orden --
+Filo_Platon_Test_Incorrect0
+Filo_Platon_Test_Incorrect1
+Filo_Platon_Test_Incorrect2
