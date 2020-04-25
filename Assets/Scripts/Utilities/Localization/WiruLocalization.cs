@@ -6,7 +6,7 @@ using System.IO;
 namespace WiruLib {
     public class WiruLocalization : Singleton<WiruLocalization>
     {
-        public enum Language { Eng, Spa, Cat, Jap, Fre };
+        public enum Language { Eng, Spa, Cat, End};
         Language currentLanguage;
         public Language CurrentLanguage
         {
@@ -17,17 +17,36 @@ namespace WiruLib {
                 ChangeLanguage();
             }
         }
-        public Dictionary<string, List<string>> map;
+        public Dictionary<string, string[]> map;
 
         public void Init_WiruLocalization()
         {
-            //ParseLanguageCSVToJSON(LoadCSV("Localization"));
             CurrentLanguage = Language.Spa;
+            map = new Dictionary<string, string[]>();
+            LoadJSON();
+        }
+
+        public void LoadJSON()
+        {
+            TextAsset json = Resources.Load<TextAsset>("Localization/Localization_JSON");
+            Cjt_Map tempCjt = JsonUtility.FromJson<Cjt_Map>("{\"maps\":" + json.text + "}");
+
+            Map[] allWords = tempCjt.maps;
+
+            foreach(Map m in allWords)
+            {
+                string[] temp = new string[(int)Language.End];
+                temp[(int)Language.Eng] = m.Eng;
+                temp[(int)Language.Spa] = m.Spa;
+                temp[(int)Language.Cat] = m.Cat;
+
+                map.Add(m.Key, temp);
+            }
         }
 
         public static string LoadCSV(string path)
         {
-            TextAsset file = Resources.Load(path) as TextAsset;
+            TextAsset file = Resources.Load<TextAsset>(path);
             if (file == null)
             {
                 Debug.LogError("Error while Loading: " + path);
@@ -41,14 +60,9 @@ namespace WiruLib {
 
         public static void SaveJSON(string path)
         {
-            System.IO.StreamWriter file = new StreamWriter("Assets/Resources/" + path + ".json", false);
+            System.IO.StreamWriter file = new StreamWriter("Assets/Resources/" + path + "_JSON.json", false);
             file.Write(CSVToJSON.CSVToJson(LoadCSV(path)));
             file.Close();
-        }
-
-        public static void LoadLocalization()
-        {
-
         }
 
         public static void GenerateJSON(string path)
@@ -56,11 +70,16 @@ namespace WiruLib {
             SaveJSON(path);
         }
 
+        public string GetTerm(string key)
+        {
+            string ret = "";
+            ret = map[key][(int)currentLanguage];
+            return ret;
+        }
+
         public string[] GetTermData(string key)
         {
-            string[] ret = new string[0];
-            ret = map[key].ToArray();
-            return ret;
+            return map[key];
         }
 
         public void ChangeLanguage()
@@ -76,7 +95,17 @@ namespace WiruLib {
     }
 }
 
+[System.Serializable]
+class Cjt_Map
+{
+    public Map[] maps;
+}
+
+[System.Serializable]
 class Map
 {
-    public Dictionary<string, List<string>> map;
+    public string Key;
+    public string Eng;
+    public string Spa;
+    public string Cat;
 }

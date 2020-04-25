@@ -10,20 +10,18 @@ namespace WiruLib {
         string[] term;
         string translatedTerm;
 
-        private void Start()
+        private void Awake()
         {
             text = GetComponent<TMPro.TextMeshProUGUI>();
-            SetKey(key);
+        }
+
+        private void Start()
+        {
         }
 
         public void InitWiruLocalizeText(string[] data)
         {
-            key = data[0];
-            term = new string[data.Length - 1];
-            for (int i = 0; i < term.Length; i++)
-            {
-                term[i] = data[i + 1];
-            }
+            term = data;
             ChangeLanguage(WiruLocalization.Instance.CurrentLanguage);
         }
 
@@ -31,14 +29,19 @@ namespace WiruLib {
         {
             if (term != null)
             {
-                translatedTerm = term[(int)lang];
-                text.text = translatedTerm;
+                text.text = term[(int)lang];
             }
         }
 
-        public void SetKey(string key)
+        public void SetKey(string _key)
         {
+            key = _key;
             InitWiruLocalizeText(WiruLocalization.Instance.GetTermData(key));
+        }
+
+        public string GetKey()
+        {
+            return key;
         }
     }
 }

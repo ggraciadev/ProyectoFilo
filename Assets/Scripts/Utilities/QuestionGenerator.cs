@@ -39,7 +39,7 @@ public class QuestionGenerator : UnityEditor.EditorWindow
         }
         
         
-        WiruLib.WiruLocalization.GenerateJSON("Localization/Localization");
+        //WiruLib.WiruLocalization.GenerateJSON("Localization/Localization");
         
         window.ShowUtility();
     }
@@ -154,11 +154,11 @@ public class QuestionGenerator : UnityEditor.EditorWindow
         file.Write("\n" + asignatura + "_" + tema + "_" + questionKey + ",," + questionTitleSpa + ",");
         for(int i = 0; i < correctAnswersCount; ++i)
         {
-            file.Write("\n" + asignatura + "_" + tema + "_" + questionKey + "Correct" + i  + ",," + correctAnswers[i] + ",");
+            file.Write("\n" + asignatura + "_" + tema + "_" + questionKey + "_Correct" + i  + ",," + correctAnswers[i] + ",");
         }
         for (int i = 0; i < incorrectAnswersCount; ++i)
         {
-            file.Write("\n" + asignatura + "_" + tema + "_" + questionKey + "Incorrect" + i + ",," + incorrectAnswers[i] + ",");
+            file.Write("\n" + asignatura + "_" + tema + "_" + questionKey + "_Incorrect" + i + ",," + incorrectAnswers[i] + ",");
         }
         file.Close();
     }
