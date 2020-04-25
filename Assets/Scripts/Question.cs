@@ -23,6 +23,8 @@ public class Question
     ButtonManager[] buttons;
     List<int> selectedAnswers;
 
+    bool checkedQuestion;
+
 
     public Question()
     {
@@ -33,6 +35,7 @@ public class Question
 
     public void Init()
     {
+        checkedQuestion = false;
         selectedAnswers.Clear();
         buttons = GameObject.FindObjectsOfType<ButtonManager>();
         for(int i = 0; i < buttons.Length; ++i)
@@ -90,11 +93,17 @@ public class Question
 
     public bool CheckCorrect()
     {
-        return CheckAnswers();
+        if(CheckAnswers())
+        {
+            checkedQuestion = true;
+            return true;
+        }
+        return false;
     }
 
     public void DiselectButton(ButtonManager bm)
     {
+        if (checkedQuestion) return;
         int temp = -1; 
         bm.ChangeState(ButtonManager.ButtonState.Normal);
 
@@ -124,6 +133,7 @@ public class Question
 
     public void SelectButton(ButtonManager bm)
     {
+        if (checkedQuestion) return;
         switch (questionType)
         {
             case Question.QuestionTypes.Test:
@@ -139,7 +149,7 @@ public class Question
                 selectedAnswers.Add(bm.ID);
                 break;
         }
-
+        bm.ChangeState(ButtonManager.ButtonState.Selected);
         string temp = "Respuestas seleccionadas: ";
         for (int i = 0; i < selectedAnswers.Count; ++i)
         {

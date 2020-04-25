@@ -23,6 +23,8 @@ public class QuestionManager : MonoBehaviour
     [SerializeField] GameObject mainPanel;
     [SerializeField] GameObject currentPanel;
 
+    bool checkedAnswer;
+
     int currentQuestion;
 
     // Start is called before the first frame update
@@ -122,6 +124,7 @@ public class QuestionManager : MonoBehaviour
 
     void LoadCurrentQuestion()
     {
+        checkedAnswer = false;
         selectedAnswers.Clear();
         question.LoadQuestion(currentPaths[currentQuestion]);
         GenerateGUI();
@@ -171,11 +174,19 @@ public class QuestionManager : MonoBehaviour
     public void CheckAnswer()
     {
         bool correct = question.CheckCorrect();
-        if (correct)
+        if (checkedAnswer)
         {
-            Debug.Log("Respuesta Correcta");
             NextQuestion();
         }
-        else Debug.Log("Respuesta Incorracta");
+        else
+        {
+            if (correct)
+            {
+                Debug.Log("Respuesta Correcta");
+                checkedAnswer = true;
+            }
+            else Debug.Log("Respuesta Incorracta");
+        }
+        
     }
 }

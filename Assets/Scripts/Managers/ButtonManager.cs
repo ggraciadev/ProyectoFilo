@@ -44,12 +44,10 @@ public class ButtonManager : MonoBehaviour
         if (currentState != ButtonState.Normal)
         {
             question.DiselectButton(this);
-            ChangeState(ButtonState.Normal);
         }
         else
         {
             question.SelectButton(this);
-            ChangeState(ButtonState.Selected);
         }
     }
 
