@@ -1,0 +1,13 @@
+-- Key de la pregunta --
+Bio_Genetica_Test2
+
+-- Tipo de pregunta --
+Test
+
+-- Respuestas Correctas en orden --
+Bio_Genetica_Test2_Correct0
+
+-- Respuestas Incorrectas en orden --
+Bio_Genetica_Test2_Incorrect0
+Bio_Genetica_Test2_Incorrect1
+Bio_Genetica_Test2_Incorrect2

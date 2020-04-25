@@ -1,0 +1,14 @@
+-- Key de la pregunta --
+Filo_Platon_TestMulti
+
+-- Tipo de pregunta --
+MultipleChoice
+
+-- Respuestas Correctas en orden --
+Filo_Platon_TestMulti_Correct0
+Filo_Platon_TestMulti_Correct1
+
+-- Respuestas Incorrectas en orden --
+Filo_Platon_TestMulti_Incorrect0
+Filo_Platon_TestMulti_Incorrect1
+Filo_Platon_TestMulti_Incorrect2
