@@ -1,0 +1,152 @@
+[
+{
+"Key": "MainMenu","Eng": "Main Menu","Spa": "Menú Principal","Cat": ""
+},
+{
+"Key": "DataMenu","Eng": "Data Menu","Spa": "Menú de datos","Cat": ""
+},
+{
+"Key": "Asignatura","Eng": "Subject","Spa": "Asignatura","Cat": "Assignatura"
+},
+{
+"Key": "Asignaturas","Eng": "Subjects","Spa": "Asignaturas","Cat": "Assignatures"
+},
+{
+"Key": "Filo","Eng": "Philosophy","Spa": "Filosofía","Cat": "Filosofia"
+},
+{
+"Key": "Bio","Eng": "Biology","Spa": "Biología","Cat": "Biologia"
+},
+{
+"Key": "Tema","Eng": "Chapter","Spa": "Tema","Cat": "Tema"
+},
+{
+"Key": "Platon","Eng": "Platon","Spa": "Platón","Cat": "Plató"
+},
+{
+"Key": "Descartes","Eng": "Descartes","Spa": "Descartes","Cat": "Descartes"
+},
+{
+"Key": "Genetica","Eng": "Gens","Spa": "Genética","Cat": "Genètica"
+},
+{
+"Key": "Preguntas","Eng": "Questions","Spa": "Preguntas","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01","Eng": "","Spa": "La teoría de las [01] es una teoría [02] (nos habla de la realidad) pero también es [03] (nos explica como conocemos) [04] (como es el hombre) [05] (y su alma). También constituye el fundamento de su [06] y su [07]","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_01","Eng": "","Spa": "ideas","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_02","Eng": "","Spa": "metafísica","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_03","Eng": "","Spa": "gnoseológica","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_04","Eng": "","Spa": "antropológica","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_05","Eng": "","Spa": "psicológica","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_06","Eng": "","Spa": "ética","Cat": ""
+},
+{
+"Key": "TeoriaIdeas_01_07","Eng": "","Spa": "política","Cat": ""
+},
+{
+"Key": "Prueba_01","Eng": "","Spa": "¿Cual es la verdadera?","Cat": ""
+},
+{
+"Key": "Prueba_01_01","Eng": "","Spa": "Esta no","Cat": ""
+},
+{
+"Key": "Prueba_01_02","Eng": "","Spa": "Correcta","Cat": ""
+},
+{
+"Key": "Prueba_01_03","Eng": "","Spa": "Incorrecta","Cat": ""
+},
+{
+"Key": "Prueba_01_04","Eng": "","Spa": "Esta tampoco","Cat": ""
+},
+{
+"Key": "Filo_Platon_Test","Eng": "","Spa": "Cual es la correcta?","Cat": ""
+},
+{
+"Key": "Filo_Platon_Test_Correct0","Eng": "","Spa": "Esta es correcta","Cat": ""
+},
+{
+"Key": "Filo_Platon_Test_Incorrect0","Eng": "","Spa": "Incorrecta","Cat": ""
+},
+{
+"Key": "Filo_Platon_Test_Incorrect1","Eng": "","Spa": "Esta no","Cat": ""
+},
+{
+"Key": "Filo_Platon_Test_Incorrect2","Eng": "","Spa": "Esta tampoco","Cat": ""
+},
+{
+"Key": "Filo_Platon_Test2","Eng": "","Spa": "Cual es la correcta de estas? (2)","Cat": ""
+},
+{
+"Key": "Filo_Platon_Test2_Correct0","Eng": "","Spa": "Soy correcta","Cat": ""
+},
+{
+"Key": "Filo_Platon_Test2_Incorrect0","Eng": "","Spa": "Incorrecta","Cat": ""
+},
+{
+"Key": "Filo_Platon_Test2_Incorrect1","Eng": "","Spa": "Aun mas incorrecta","Cat": ""
+},
+{
+"Key": "Filo_Platon_Test2_Incorrect2","Eng": "","Spa": "jeje yo tampoco","Cat": ""
+},
+{
+"Key": "Filo_Descartes_Test2","Eng": "","Spa": "Cual es la correcta de estas? (Descartes)","Cat": ""
+},
+{
+"Key": "Filo_Descartes_Test2_Correct0","Eng": "","Spa": "Soy correcta","Cat": ""
+},
+{
+"Key": "Filo_Descartes_Test2_Incorrect0","Eng": "","Spa": "Incorrecta","Cat": ""
+},
+{
+"Key": "Filo_Descartes_Test2_Incorrect1","Eng": "","Spa": "Aun mas incorrecta","Cat": ""
+},
+{
+"Key": "Filo_Descartes_Test2_Incorrect2","Eng": "","Spa": "jeje yo tampoco","Cat": ""
+},
+{
+"Key": "Bio_Genetica_Test2","Eng": "","Spa": "Cual es la correcta de estas? (Genetica)","Cat": ""
+},
+{
+"Key": "Bio_Genetica_Test2_Correct0","Eng": "","Spa": "Soy correcta","Cat": ""
+},
+{
+"Key": "Bio_Genetica_Test2_Incorrect0","Eng": "","Spa": "Incorrecta","Cat": ""
+},
+{
+"Key": "Bio_Genetica_Test2_Incorrect1","Eng": "","Spa": "Aun mas incorrecta","Cat": ""
+},
+{
+"Key": "Bio_Genetica_Test2_Incorrect2","Eng": "","Spa": "jeje yo tampoco","Cat": ""
+},
+{
+"Key": "Filo_Platon_TestMulti","Eng": "","Spa": "Opciones multiples","Cat": ""
+},
+{
+"Key": "Filo_Platon_TestMulti_Correct0","Eng": "","Spa": "Correcta1","Cat": ""
+},
+{
+"Key": "Filo_Platon_TestMulti_Correct1","Eng": "","Spa": "Correcta2","Cat": ""
+},
+{
+"Key": "Filo_Platon_TestMulti_Incorrect0","Eng": "","Spa": "Respuesta incorrecta 0","Cat": ""
+},
+{
+"Key": "Filo_Platon_TestMulti_Incorrect1","Eng": "","Spa": "Respuesta incorrecta 1","Cat": ""
+},
+{
+"Key": "Filo_Platon_TestMulti_Incorrect2","Eng": "","Spa": "Respuesta incorrecta 2","Cat": ""
+}
+]
